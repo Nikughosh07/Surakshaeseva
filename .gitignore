@@ -1,1 +1,8 @@
 node_modules
+
+# Frontend build output
+dist/
+build/
+
+# Environment variables
+.env
