@@ -25,7 +25,10 @@ const io = require('socket.io')(server, {
 });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://suraksha-e-seva-fn1k.onrender.com", // Or your specific frontend URL
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
