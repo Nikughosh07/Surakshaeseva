@@ -27,7 +27,7 @@ const AlertBroadcaster = () => {
         if (!message.trim()) return;
         setSending(true);
         try {
-            await axios.post('http://localhost:5000/api/alerts/broadcast', { message, severity });
+            await axios.post('https://suraksha-e-seva-fn1k.onrender.com/api/alerts/broadcast', { message, severity });
             setHistory(prev => [{ message, severity, time: new Date() }, ...prev.slice(0, 4)]);
             setMessage('');
             setSent(true);
