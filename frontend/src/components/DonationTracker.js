@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Heart, Truck, CheckCircle2, Clock, ChevronRight } from 'lucide-react';
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/coordination';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
 
 const statusConfig = {
     'Pledged': { icon: Clock, color: 'text-yellow-400', bg: 'bg-yellow-400/10 border-yellow-700/40', label: 'Pledged' },
