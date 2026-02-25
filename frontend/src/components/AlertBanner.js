@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Megaphone, X, AlertTriangle, Info } from 'lucide-react';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://suraksha-e-seva-fn1k.onrender.com');
 
 const severityConfig = {
   critical: { bg: 'bg-red-600', border: 'border-red-400', icon: <Megaphone className="animate-pulse" size={20} />, label: 'CRITICAL ALERT' },
