@@ -17,44 +17,57 @@ router.post('/register', async (req, res) => {
     try {
         const { name, email, password, role, volunteerRole, phone, superAdminKey } = req.body;
 
-        // Check if user already exists
+        // 1. Check if user already exists
         const existing = await User.findOne({ email });
         if (existing) {
             return res.status(400).json({ message: 'An account with this email already exists' });
         }
 
-        // Super Admin validation
+        // 2. Super Admin validation
         if (role === 'super_admin') {
             if (!superAdminKey || superAdminKey !== SUPER_ADMIN_KEY) {
                 return res.status(403).json({ message: 'Invalid Super Admin authorization key' });
             }
         }
 
-        // Validate volunteer role
+        // 3. Validate volunteer role
         if (role === 'volunteer' && !volunteerRole) {
             return res.status(400).json({ message: 'Volunteers must select a specialty role' });
         }
 
+        // 4. Prepare User Data with Geospatial Fix
         const userData = {
             name,
             email,
             password,
             role: role || 'volunteer',
-            phone
+            phone,
+            // ✅ FIX: Coordinates added to satisfy MongoDB 2dsphere index requirement
+            currentLocation: {
+                type: "Point",
+                coordinates: [0, 0] // Default [longitude, latitude]
+            }
         };
 
+        // 5. Specialized logic for volunteers
         if (userData.role === 'volunteer') {
             userData.volunteerRole = volunteerRole;
+            // Capitalize the first letter for the skills array
             userData.skills = [volunteerRole.charAt(0).toUpperCase() + volunteerRole.slice(1)];
         }
 
         const user = new User(userData);
 
+        // 6. Save to MongoDB
         await user.save();
+        
+        // 7. Generate access token
         const token = generateToken(user._id);
 
         res.status(201).json({ token, user });
     } catch (err) {
+        // Log the specific error to Render console for easier debugging
+        console.error('Registration Error:', err.message);
         res.status(500).json({ message: err.message });
     }
 });
@@ -70,6 +83,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ message: 'Invalid email or password' });
         }
 
+        // matchPassword must be defined in your User model
         const isMatch = await user.matchPassword(password);
         if (!isMatch) {
             return res.status(401).json({ message: 'Invalid email or password' });
