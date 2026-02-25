@@ -1,0 +1,13 @@
+{
+  "name": "disaster-relief-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"cd backend && npm run start\" \"cd frontend && npm start\"",
+    "seed": "cd backend && npm run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
