@@ -20,8 +20,8 @@ import {
 } from 'lucide-react';
 import axios from 'axios';
 
-const API = 'https://suraksha-e-seva-fn1k.onrender.com/';
-const AUTH_API = 'http://localhost:5000/api/auth';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
+const AUTH_API = 'https://suraksha-e-seva-fn1k.onrender.com/api/auth';
 
 const TABS = [
   { id: 'my_mission', label: 'My Mission', icon: Shield, roles: ['volunteer'] },
