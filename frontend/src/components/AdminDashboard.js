@@ -37,7 +37,7 @@ const AdminDashboard = ({ stats, camps }) => {
         const fetchMissing = async () => {
             setMissingLoading(true);
             try {
-                const res = await axios.get('http://localhost:5000/api/coordination/missing-persons');
+                const res = await axios.get('https://suraksha-e-seva-fn1k.onrender.com/api/coordination/missing-persons');
                 setMissing(res.data);
             } catch (e) {
                 console.error(e);
@@ -50,8 +50,8 @@ const AdminDashboard = ({ stats, camps }) => {
     const makeUrl = (p) => {
         if (!p) return '';
         if (p.startsWith('http')) return p;
-        if (p.startsWith('/')) return `http://localhost:5000${p}`;
-        return `http://localhost:5000/${p}`;
+        if (p.startsWith('/')) return `https://suraksha-e-seva-fn1k.onrender.com${p}`;
+        return `https://suraksha-e-seva-fn1k.onrender.com/${p}`;
     };
 
     // Build occupancy trend from camp data
