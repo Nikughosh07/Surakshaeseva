@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MissingReportForm from './MissingReportForm';
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/coordination';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
 
 export default function MissingReport({ user }) {
     const [reports, setReports] = useState([]);
@@ -28,8 +28,8 @@ export default function MissingReport({ user }) {
     const makeUrl = (p) => {
         if (!p) return '';
         if (p.startsWith('http')) return p;
-        if (p.startsWith('/')) return `http://localhost:5000${p}`;
-        return `http://localhost:5000/${p}`;
+        if (p.startsWith('/')) return `https://suraksha-e-seva-fn1k.onrender.com${p}`;
+        return `https://suraksha-e-seva-fn1k.onrender.com/${p}`;
     };
 
     return (
