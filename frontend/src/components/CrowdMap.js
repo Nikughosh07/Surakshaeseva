@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaf
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 
-const API = 'http://localhost:5000/api/coordination';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
 
 // component that lets user click map to set location on form
 function LocationSelector({ onChange, current }) {
