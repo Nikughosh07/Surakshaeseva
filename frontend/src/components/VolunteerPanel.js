@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { UserCheck, UserX, Plus, Search, Filter, ClipboardList } from 'lucide-react';
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/coordination';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
 
 const skillOptions = ['Medical', 'Cooking', 'Driving', 'Construction', 'Translation'];
 
