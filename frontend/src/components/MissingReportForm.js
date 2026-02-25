@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/coordination';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
 
 export default function MissingReportForm({ onSubmitted }) {
     const [form, setForm] = useState({
