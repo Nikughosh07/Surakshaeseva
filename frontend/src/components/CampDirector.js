@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PackageOpen, Users, Save, CheckCircle2, AlertCircle, Plus, Edit2, ShieldAlert } from 'lucide-react';
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/coordination';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
 
 export default function CampDirector({ camps, onCampUpdated }) {
     const [selectedCampId, setSelectedCampId] = useState('');
