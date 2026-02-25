@@ -8,7 +8,7 @@ import axios from 'axios';
 import Footer from './Footer';
 import logo from '../logo1.jpeg';
 
-const API = 'http://localhost:5000/api/auth';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/auth';
 
 const VOLUNTEER_ROLES = [
     { id: 'medical', label: 'Medical', icon: Stethoscope, color: 'text-red-400', borderActive: 'border-red-400', bgActive: 'bg-red-400/20' },
