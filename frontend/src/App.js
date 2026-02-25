@@ -17,7 +17,7 @@ import Footer from './components/Footer';
 import logo from './logo1.jpeg';
 import {
   Map, MapPin, Globe, LayoutDashboard, Users, Package, Megaphone, Shield, Heart, LogOut, Settings
-} from 'lucide-react';
+} from 'lucide-react'; 
 import axios from 'axios';
 
 const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
