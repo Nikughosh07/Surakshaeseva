@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Shield, MapPin, Clock, AlertTriangle, Play, CheckCircle2, PauseCircle } from 'lucide-react';
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api/coordination';
+const API = 'https://suraksha-e-seva-fn1k.onrender.com/api/coordination';
 
 export default function MyMission({ user }) {
     const [tasks, setTasks] = useState([]);
